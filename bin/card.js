@@ -15,24 +15,22 @@ const options = {
 // Text + chalk definitions
 const data = {
   name: chalk.white('Conlin Durbin'),
-  handle: chalk.greenBright.bold('wuz'),
-  work: chalk.white('Frontend software engineer at Lessonly'),
-  twitter: chalk.redBright('https://twitter.com/CallMeWuz'),
-  github: chalk.redBright('https://github.com/wuz'),
-  linkedin: chalk.redBright('https://linkedin.com/in/wuz'),
-  web: chalk.redBright('https://wuz.fyi'),
-  npx: chalk.white('npx wuz'),
-  labelWork: chalk.white.bold('      Work:'),
-  labelTwitter: chalk.white.bold('   Twitter:'),
-  labelGitHub: chalk.white.bold('    GitHub:'),
-  labelLinkedIn: chalk.white.bold('  LinkedIn:'),
-  labelWeb: chalk.white.bold('       Web:'),
-  labelCard: chalk.white.bold('      Card:')
+  handle: chalk.magenta.bold('wuz'),
+  work: chalk.white.bold('Frontend software engineer at ') + chalk.green.bold('HackerRank'),
+  twitter: chalk.cyan.bold('https://twitter.com/CallMeWuz'),
+  github: chalk.red.bold('https://github.com/wuz'),
+  linkedin: chalk.blue.bold('https://linkedin.com/in/wuz'),
+  web: chalk.yellow.bold('https://wuz.sh'),
+  npx: chalk.white.bold('npx wuz'),
+  labelWork: chalk.white('      Work:'),
+  labelTwitter: chalk.white('   Twitter:'),
+  labelGitHub: chalk.white('    GitHub:'),
+  labelLinkedIn: chalk.white('  LinkedIn:'),
+  labelWeb: chalk.white('       Web:'),
+  labelCard: chalk.white('      Card:')
 }
 
 // Actual strings we're going to output
-const newline = '\n'
-const heading = `${data.name} ▵  ${data.handle}`
 const working = `${data.labelWork}  ${data.work}`
 const twittering = `${data.labelTwitter}  ${data.twitter}`
 const githubing = `${data.labelGitHub}  ${data.github}`
@@ -41,6 +39,18 @@ const webing = `${data.labelWeb}  ${data.web}`
 const carding = `${data.labelCard}  ${data.npx}`
 
 // Put all our output together into a single variable so we can use boxen effectively
-const output = heading + newline + newline + working + newline + twittering + newline + githubing + newline + linkedining + newline + webing + newline + newline + carding
+const output = `
+                           ${data.handle}
+                  a.k.a. ${data.name}
 
-console.log(chalk.green(boxen(output, options)))
+                 ⥌⥌⥌ has-been wizard ⥌⥌⥌
+  
+  ${working}
+  ${twittering}
+  ${githubing}
+  ${linkedining}
+  ${webing}
+  ${carding}
+`;
+
+console.log(chalk.magenta(boxen(output, options)))
