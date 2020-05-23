@@ -14,9 +14,9 @@ const options = {
 
 // Text + chalk definitions
 const data = {
-  name: chalk.white('Conlin Durbin'),
   handle: chalk.magenta.bold('wuz'),
-  work: chalk.white.bold('Frontend software engineer at ') + chalk.green.bold('HackerRank'),
+  name: chalk.magenta('Conlin Durbin'),
+  work: chalk.white.bold('Senior Software Engineer at ') + chalk.green.bold('HackerRank'),
   twitter: chalk.cyan.bold('https://twitter.com/CallMeWuz'),
   github: chalk.red.bold('https://github.com/wuz'),
   linkedin: chalk.blue.bold('https://linkedin.com/in/wuz'),
@@ -38,19 +38,21 @@ const linkedining = `${data.labelLinkedIn}  ${data.linkedin}`
 const webing = `${data.labelWeb}  ${data.web}`
 const carding = `${data.labelCard}  ${data.npx}`
 
+const tagline = chalk.magenta(`✨ has-been wizard ✨`);
+
 // Put all our output together into a single variable so we can use boxen effectively
 const output = `
-                           ${data.handle}
-                  a.k.a. ${data.name}
+                         ${data.handle}
+                 a.k.a. ${data.name}
 
-                  ✨ has-been wizard ✨
+                ${tagline} 
   
   ${working}
+  ${webing}
   ${twittering}
   ${githubing}
   ${linkedining}
-  ${webing}
   ${carding}
 `;
 
-console.log(chalk.magenta(boxen(output, options)))
+console.log(chalk.green(boxen(output, options)))
