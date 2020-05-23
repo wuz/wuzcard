@@ -1,10 +1,10 @@
 {
   "name": "wuz",
-  "version": "1.2.0",
+  "version": "1.2.2",
   "description": "A personal card for Conlin Durbin (@wuz)",
   "main": "index.js",
   "bin": {
-    "bitandbang": "./bin/card.js"
+    "wuz": "./bin/card.js"
   },
   "repository": {
     "type": "git",
@@ -14,7 +14,7 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
-  "author": "Conlin Durbin <sup@wuz.fyi> (https://wuz.fyi)",
+  "author": "Conlin Durbin <sup@wuz.fyi> (https://wuz.sh)",
   "license": "MIT",
   "dependencies": {
     "boxen": "^2.1.0",

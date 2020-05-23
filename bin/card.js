@@ -43,7 +43,7 @@ const output = `
                            ${data.handle}
                   a.k.a. ${data.name}
 
-                 ⥌⥌⥌ has-been wizard ⥌⥌⥌
+                  ✨ has-been wizard ✨
   
   ${working}
   ${twittering}
