@@ -1,6 +1,6 @@
 {
   "name": "wuz",
-  "version": "1.2.2",
+  "version": "1.3.0",
   "description": "A personal card for Conlin Durbin (@wuz)",
   "main": "index.js",
   "bin": {

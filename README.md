@@ -1,3 +1,5 @@
+![Publish to NPM](https://github.com/wuz/wuzcard/workflows/Publish%20to%20NPM/badge.svg?branch=master&event=push)
+
 It's me, Conlin!
 
 # Usage
