@@ -2,57 +2,99 @@
 // 👆 Used to tell Node.js that this is a CLI tool
 
 // Pull in our modules
-const chalk = require('chalk')
-const boxen = require('boxen')
+import { Chalk, supportsColor } from 'chalk';
+import boxen from 'boxen';
 
-// Define options for Boxen
-const options = {
-  padding: 1,
-  margin: 1,
-  borderStyle: 'round'
-}
+// Load our data
+const {
+  name,
+  handle,
+  tagline,
+  jobTitle,
+  company,
+  twitter,
+  github,
+  linkedin,
+  web,
+  card
+} = {
+  handle: "wuz",
+  name: "Conlin Durbin",
+  tagline: "✨ has-been wizard ✨",
+  jobTitle: "Tech Lead Manager",
+  company: "Agora/Payscale",
+  web: "https://wuz.sh",
+  twitter: "wuz_tweets",
+  insta: "wuz_snaps",
+  github: "wuz",
+  linkedin: "wuz",
+  card: "wuz"
+};
+
+const chalk = new Chalk({level: 2});
+
 
 // Text + chalk definitions
-const data = {
-  handle: chalk.magenta.bold('wuz'),
-  name: chalk.magenta('Conlin Durbin'),
-  work: chalk.white.bold('Senior Software Engineer at ') + chalk.green.bold('HackerRank'),
-  twitter: chalk.cyan.bold('https://twitter.com/CallMeWuz'),
-  github: chalk.red.bold('https://github.com/wuz'),
-  linkedin: chalk.blue.bold('https://linkedin.com/in/wuz'),
-  web: chalk.yellow.bold('https://wuz.sh'),
-  npx: chalk.white.bold('npx wuz'),
-  labelWork: chalk.white('      Work:'),
-  labelTwitter: chalk.white('   Twitter:'),
-  labelGitHub: chalk.white('    GitHub:'),
-  labelLinkedIn: chalk.white('  LinkedIn:'),
-  labelWeb: chalk.white('       Web:'),
-  labelCard: chalk.white('      Card:')
+const boxData = {
+  handle: chalk.magenta.bold(handle),
+  name: chalk.magenta(name),
+  work: chalk.white.bold(jobTitle) + " at " + chalk.green.bold(company),
+  tagline: chalk.magenta(tagline),
+  twitter: chalk.cyan.bold(twitter),
+  github: chalk.red.bold(github),
+  linkedin: chalk.blue.bold(linkedin),
+  web: chalk.yellow.bold(web),
+  npx: chalk.white.bold(card),
+  urlTwitter: chalk.dim('https://twitter.com/'),
+  urlGithub: chalk.dim('https://github.com/'),
+  /* labelGitHub: chalk.white('    GitHub:'), */
+  /* labelLinkedIn: chalk.white('  LinkedIn:'), */
+  /* labelWeb: chalk.white('       Web:'), */
+  /* labelCard: chalk.white('      Card:') */
+  labelWork: chalk.white.bold('Work:'.padStart(9, ' ')),
+  labelTwitter: chalk.white.bold('Twitter:'.padStart(9, ' ')),
+  labelGitHub: chalk.white.bold('GitHub:'.padStart(9, ' ')),
+  labelLinkedIn: chalk.white.bold('LinkedIn:'),
+  labelWeb: chalk.white.bold('Web:'.padStart(9, ' ')),
+  labelCard: chalk.white.bold('Card:'.padStart(9, ' '))
 }
 
 // Actual strings we're going to output
-const working = `${data.labelWork}  ${data.work}`
-const twittering = `${data.labelTwitter}  ${data.twitter}`
-const githubing = `${data.labelGitHub}  ${data.github}`
-const linkedining = `${data.labelLinkedIn}  ${data.linkedin}`
-const webing = `${data.labelWeb}  ${data.web}`
-const carding = `${data.labelCard}  ${data.npx}`
+const working = `${boxData.labelWork}  ${boxData.work}`
+const twittering = `${boxData.labelTwitter}  ${boxData.urlTwitter}${boxData.twitter}`
+const githubing = `${boxData.labelGitHub}  ${boxData.urlGithub}${boxData.github}`
+const linkedining = `${boxData.labelLinkedIn}  ${boxData.linkedin}`
+const webing = `${boxData.labelWeb}  ${boxData.web}`
+const carding = `${boxData.labelCard}  ${chalk.red('npx')} ${boxData.npx}`
 
-const tagline = chalk.magenta(`✨ has-been wizard ✨`);
+
+const title = `${boxData.name} ${chalk.gray.dim("\\\\")} ${boxData.handle}`;
 
 // Put all our output together into a single variable so we can use boxen effectively
 const output = `
-                         ${data.handle}
-                 a.k.a. ${data.name}
-
-                ${tagline} 
+              ${boxData.tagline} 
   
-  ${working}
-  ${webing}
-  ${twittering}
-  ${githubing}
-  ${linkedining}
-  ${carding}
+${working}
+${webing}
+${twittering}
+${githubing}
+${linkedining}
+${carding}
 `;
 
-console.log(chalk.green(boxen(output, options)))
+// Define options for Boxen
+const options = {
+  padding: {
+    top: 0,
+    bottom: 1,
+    left: 1, 
+    right: 2,
+  },
+  margin: 1,
+  borderStyle: 'round',
+  borderColor: 'magenta',
+  title,
+  titleAlignment: 'center',
+}
+
+console.log(boxen(output, options));
