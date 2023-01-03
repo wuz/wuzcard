@@ -23,7 +23,7 @@ const {
   tagline: "✨ has-been wizard ✨",
   jobTitle: "Tech Lead Manager",
   company: "Agora/Payscale",
-  web: "https://wuz.sh",
+  web: "wuz.sh",
   twitter: "wuz_tweets",
   insta: "wuz_snaps",
   github: "wuz",
@@ -47,24 +47,22 @@ const boxData = {
   npx: chalk.white.bold(card),
   urlTwitter: chalk.dim('https://twitter.com/'),
   urlGithub: chalk.dim('https://github.com/'),
-  /* labelGitHub: chalk.white('    GitHub:'), */
-  /* labelLinkedIn: chalk.white('  LinkedIn:'), */
-  /* labelWeb: chalk.white('       Web:'), */
-  /* labelCard: chalk.white('      Card:') */
-  labelWork: chalk.white.bold('Work:'.padStart(9, ' ')),
-  labelTwitter: chalk.white.bold('Twitter:'.padStart(9, ' ')),
-  labelGitHub: chalk.white.bold('GitHub:'.padStart(9, ' ')),
-  labelLinkedIn: chalk.white.bold('LinkedIn:'),
-  labelWeb: chalk.white.bold('Web:'.padStart(9, ' ')),
-  labelCard: chalk.white.bold('Card:'.padStart(9, ' '))
+  urlLinkedIn: chalk.dim('https://linkedin.com/in/'),
+  urlWeb: chalk.dim('https://'),
+  labelWork: chalk.white('Work:'.padStart(9, ' ')),
+  labelTwitter: chalk.white('Twitter:'.padStart(9, ' ')),
+  labelGitHub: chalk.white('GitHub:'.padStart(9, ' ')),
+  labelLinkedIn: chalk.white('LinkedIn:'),
+  labelWeb: chalk.white('Web:'.padStart(9, ' ')),
+  labelCard: chalk.white('Card:'.padStart(9, ' '))
 }
 
 // Actual strings we're going to output
 const working = `${boxData.labelWork}  ${boxData.work}`
 const twittering = `${boxData.labelTwitter}  ${boxData.urlTwitter}${boxData.twitter}`
 const githubing = `${boxData.labelGitHub}  ${boxData.urlGithub}${boxData.github}`
-const linkedining = `${boxData.labelLinkedIn}  ${boxData.linkedin}`
-const webing = `${boxData.labelWeb}  ${boxData.web}`
+const linkedining = `${boxData.labelLinkedIn}  ${boxData.urlLinkedIn}${boxData.linkedin}`
+const webing = `${boxData.labelWeb}  ${boxData.urlWeb}${boxData.web}`
 const carding = `${boxData.labelCard}  ${chalk.red('npx')} ${boxData.npx}`
 
 
